@@ -1,0 +1,113 @@
+{% load static %}
+<html lang="en">
+
+ <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Раскошные Виллы</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-villa-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 591 villa agency
+
+https://templatemo.com/tm-591-villa-agency
+
+-->
+  </head>
+  <body>
+    <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <li><i class="fa fa-envelope"></i><a>razaeva06@gamil.com</a></li>
+            <li><i class="fa fa-map"></i> 7-й микрорайон, Бишкек 720028</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="https://api.whatsapp.com/send?phone=996771090946"><i class="fab fa-whatsapp"></i></a></li>
+            <li><a href="https://t.me/phoeeniixxx" target="_blank"><i class="fab fa-telegram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/%D0%B4%D0%B8%D0%BB%D0%B4%D0%B5-%D1%80%D0%B0%D0%B7%D0%B0%D0%B5%D0%B2%D0%B0-95b466297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/_1razaeva_/?next=%2F"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'index' %}" class="logo">
+                        <h1>Villa</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        {% if request.user.status == 2 or request.user.is_admin == True %}
+                      <li><a href="{% url 'lead_list' %}">SRM</a></li>
+                      <li><a href="{% url 'order_list' %}">Продажи</a></li>
+                        {% endif %}
+                      <li><a href="{% url 'index' %}" class="active">Дом</a></li>
+                      <li><a href="{% url 'house_list' %}">Лента</a></li>
+                      <li><a href="{% url 'house_detail' 1 %}">Публикация</a></li>
+                      <li><a href="{% url 'profile' %}">Профиль</a></li>
+                        {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'logout' %}"></i> Выйти</a></li>
+                      <li><a href="#"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ request.user }}</a></li>
+                        {% else %}
+                      <li><a href="{% url 'register' %}"></i>Регистрация</a></li>
+                      <li><a href="{% url 'login' %}"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Войти</a></li>
+                        {% endif %}
+                  </ul>
+                    <a class='menu-trigger'>
+                        <span>Меню</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+ {% block content %}
+
+ {% endblock %}
+  <footer>
+    <div class="container">
+      <div class="col-lg-8">
+        <p>РАСКОШНЫЕ ВИЛЛЫ © 2024 НАЙДЕМ НАИЛУЧШИЙ ВАРИАНТ ИМЕННО ДЛЯ ВАС
+
+<!--        Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>-->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/counter.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>

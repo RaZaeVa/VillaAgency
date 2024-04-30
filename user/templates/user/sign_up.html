@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<br><br><br>
+<!--    <form method="post" action=".">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form }}-->
+<!--        <button type="submit">Отправить</button>-->
+<!--    </form>-->
+<!--<div class="container" style="width: 400px;">-->
+<form method="post" action=".">
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleInputEmail">Почтовый Адрес</label><br>
+        {{ form.email }}
+    </div><br>
+        <div class="form-group">
+        <label for="exampleInputPassword">Никнейм</label><br>
+        {{ form.username }}
+    </div><br>
+    <div class="form-group">
+        <label for="exampleInputPassword">Номер</label><br>
+        {{ form.phone_number }}
+    </div><br>
+    <div class="form-group">
+        <label for="exampleInputPassword">Пароль</label><br>
+        {{ form.password1 }}
+    </div><br>
+    <div class="form-group">
+        <label for="exampleInputPassword">Повторите пароль</label><br>
+        {{ form.password2 }}
+    </div><br>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+</div>
+</body>
+{% endblock %}

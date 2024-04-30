@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+{% if request.user.status == 2 or request.user.is_admin == True %}
+<div class="container" style="background-color: darkorange;">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ФИО</th>
+      <th scope="col">Вилла</th>
+      <th scope="col">Дата продажи</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Сумма продаж</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      {% for orders in orders %}
+      <td>{{ orders.user }}</td>
+      <td>{{ orders.house }}</td>
+      <td>{{ orders.created_date | date:"d.m.Y" }}</td>
+      <td>{{ orders.get_status_display }}</td>
+      {% endfor %}
+      <td>{{ total_price }}</td>
+
+    </tr>
+  </tbody>
+
+</table>
+
+  </div>
+{% endif %}
+</body>
+{% endblock %}

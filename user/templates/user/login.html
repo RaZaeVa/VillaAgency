@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+<div class="container" style="width: 300px;">
+<form method="post" action=".">
+        {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleInputEmail">Почтовый Адрес</label>
+        {{ form.email }}
+    </div><br>
+        <div class="form-group">
+        <label for="exampleInputPassword">Пароль</label><br>
+        {{ form.password }}
+    </div><br>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+</div>
+</body>
+{% endblock %}
